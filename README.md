@@ -1,5 +1,8 @@
 # YTMuiscDownloader
-## Para instalar o programa na sua máquina, primeiramente python deve estar instalado juntamente com o pip.
+## Para instalar o programa na sua máquina, primeiramente python deve estar instalado juntamente com o pip, para o Zorin OS é só usar o apt:
+```
+sudo apt install python3-pip
+```
 ## Após instalado, clone este repositório:
 ``` 
 mkdir $HOME/ytdownloader
