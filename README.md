@@ -7,7 +7,7 @@ git clone https://github.com/M3L4O/YTMuiscDownloader.git $HOME/ytdownloader
 ``` 
 ## Por fim, instale as dependências usando:
 ```
-cd $HOME/ytdownload
+cd $HOME/ytdownloader
 virtualenv env
 source env/bin/activate
 pip install pip --upgrade
