@@ -1,30 +1,32 @@
 import os
+import PySimpleGUI as sg
+from PySimpleGUI.PySimpleGUI import Window
 from pytube import YouTube
 from moviepy.editor import *
 
 def downloadVideo(stream):
-    musicPath = input('Onde quer baixar?\n')
+    musicPath = sg.popup_get_folder('Onde quer baixar?')
     try:
         videoPath = stream.download(musicPath)
         video = VideoFileClip(videoPath)
         video.audio.write_audiofile(videoPath.replace('mp4', 'mp3'))
         os.remove(videoPath)
-        print('Feito')
+        sg.popup('Deu tudo certo!')
     except:
         print(':/')
 
-def getVideo():
-    url = input('Qual o link?')
+def getVideo(url):
     try:
-        stream = YouTube(url = url).streams.get_lowest_resolution()
-        escolha = input(f"Tem certeza que é esse link?\nTítulo: {stream.title}\n(S,N)")
+        stream = YouTube(url).streams.get_lowest_resolution()
+        sg.popup_yes_no(f"Tem certeza que é o vídeo {stream.title}")
+        downloadVideo(stream = stream)
     except:
-        print('Deu bom não')
-        return
-    if escolha in ('sim', 's', 'Sim', 'S'):
-        downloadVideo(stream)
-    else:
+        sg.popup('Algo não deu certo!')
         return
 
+def getURL():
+    url = sg.popup_get_text('Digite a URL')
+    getVideo(url)
+
 if __name__ == '__main__':
-    getVideo()
+    getURL()

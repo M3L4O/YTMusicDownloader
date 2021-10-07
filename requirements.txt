@@ -5,8 +5,6 @@ docutils==0.17.1
 idna==3.2
 imageio==2.9.0
 imageio-ffmpeg==0.4.5
-Kivy==2.0.0
-Kivy-Garden==0.1.4
 moviepy==1.0.3
 numpy==1.21.2
 Pillow==8.3.2
