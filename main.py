@@ -7,10 +7,7 @@ def downloadVideo(stream):
     musicPath = sg.popup_get_folder('Onde quer baixar?')
     try:
         videoPath = stream.download(musicPath)
-        print(videoPath)
-        base, ext = os.path.splitext(videoPath)
-        new_file = base + '.mp3'
-        os.rename(videoPath, new_file)
+        os.rename(videoPath, videoPath.replace('mp4', 'mp3'))
         sg.popup('Deu tudo certo!')
     except:
         sg.popup('Deu ruim!')
