@@ -2,7 +2,6 @@ import os
 import PySimpleGUI as sg
 from PySimpleGUI.PySimpleGUI import Window
 from pytube import YouTube
-from moviepy.editor import *
 
 def downloadVideo(stream):
     musicPath = sg.popup_get_folder('Onde quer baixar?')
