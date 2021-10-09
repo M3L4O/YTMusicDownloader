@@ -1,14 +1,16 @@
 import os
 import PySimpleGUI as sg
 from PySimpleGUI.PySimpleGUI import Window
-from pytube import YouTube
+from pytube import *
 
 def downloadVideo(stream):
     musicPath = sg.popup_get_folder('Onde quer baixar?')
     try:
         videoPath = stream.download(musicPath)
         print(videoPath)
-        os.rename(videoPath, videoPath.replace('mp4', 'mp3'))
+        base, ext = os.path.splitext(videoPath)
+        new_file = base + '.mp3'
+        os.rename(videoPath, new_file)
         sg.popup('Deu tudo certo!')
     except:
         sg.popup('Deu ruim!')
