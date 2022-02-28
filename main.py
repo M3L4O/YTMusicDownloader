@@ -17,10 +17,12 @@ def downloadVideo(stream):
 def getVideo(url):
     try:
         stream = YouTube(url).streams.get_audio_only()
-        sg.popup_yes_no(f"Tem certeza que é o vídeo {stream.title}")
-        downloadVideo(stream = stream)
+        print(stream)
+        response = sg.popup_yes_no(f"Tem certeza que é o vídeo {stream.title}")
+        if response == "Yes":
+            downloadVideo(stream = stream)
     except:
-        sg.popup('Algo não deu certo!')
+         sg.popup('Algo não deu certo!')
 
 def getURL():
     url = sg.popup_get_text('Digite a URL')
